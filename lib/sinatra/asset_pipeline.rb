@@ -55,6 +55,7 @@ module Sinatra
 
       app.configure :test, :development do
         app.get "#{app.assets_prefix}/*" do |path|
+          puts "[DEBUG] getting asset at #{path}"
           env_sprockets = request.env.dup
           env_sprockets['PATH_INFO'] = path
           settings.sprockets.call env_sprockets
