@@ -4,6 +4,8 @@ require 'sprockets-helpers'
 module Sinatra
   module AssetPipeline
     def self.registered(app)
+      puts "registering asset_pipeline"
+
       app.set_default :sprockets, ::Sprockets::Environment.new
       app.set_default :assets_paths, %w(assets)
       app.set_default :assets_precompile, %w(app.js app.css *.png *.jpg *.svg *.eot *.ttf *.woff *.woff2)
